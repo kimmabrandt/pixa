@@ -1,0 +1,94 @@
+
+
+
+
+<div class="mainbody">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="heading">
+        <h2 class="wow fadeInLeftBig">Featured</h2>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <span id="catIllustration">Illustration</span> | <span id="catDesign">Design</span>
+      <div id="tGallery">
+        <ul id="tumblrGallery" class="tumblrGallery">
+        </ul>
+      </div>     
+    </div>
+  </div>
+</div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+// var tagCategory = null;
+
+// // $("#tagSelect").click(function(e){
+// //   tagCategory = "illustration";
+// // });
+document.getElementById("catIllustration").addEventListener("click", changeCatIllus);
+document.getElementById("catDesign").addEventListener("click", changeCatDesign);
+
+
+
+
+function changeCatIllus() {
+
+
+$('#tumblrGallery').html("");
+
+$.ajax({
+    url: "https://api.tumblr.com/v2/tagged?tag=watercolor&api_key=fuiKNFp9vQFvjLNvx4sUwti4Yb5yGutBN4Xh10LXZhhRKjWlV4",
+    dataType: 'jsonp',
+    success: function(posts){
+      var postings = posts.response;
+      console.log(postings);
+      var text = '';
+for (var i in postings) {
+ var p = postings[i];
+text += '<li><img src=' + p.photos[0].original_size.url +'></li>';
+}
+$('#tumblrGallery').append(text);
+    }
+});
+
+// tagCategory = "design";
+}
+
+
+
+
+function changeCatDesign() {
+
+
+$('#tumblrGallery').html("");
+
+
+$.ajax({
+    url: "https://api.tumblr.com/v2/tagged?tag=watercolor&api_key=sO4aMxnu55qhYyiUpJPWncpOSAAi0gSQyVwk128u23vpVyKSoa",
+    dataType: 'jsonp',
+    success: function(posts){
+      var postings = posts.response;
+      console.log(postings);
+      var text = '';
+for (var i in postings) {
+ var p = postings[i];
+text += '<li><img src=' + p.photos[0].original_size.url +'></li>';
+}
+$('#tumblrGallery').append(text);
+    }
+});
+
+// tagCategory = "design";
+}
+
+
+</script>
+

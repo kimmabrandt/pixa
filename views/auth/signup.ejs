@@ -1,0 +1,53 @@
+<div class="mainbody">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <!-- START HEADING -->
+      <div class="heading">
+        <h2 class="wow fadeInLeftBig">Sign Up</h2>
+      </div>
+    </div>
+  </div>       
+
+
+        <div class="row">
+          <!-- BEGAIN CONTACT CONTENT -->
+          <div class="contact_content">
+            <!-- BEGAIN CONTACT FORM -->
+            <div class="col-lg-2 col-md-2 col-sm-2">
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8">
+              <div class="contact_form">
+
+                <!-- FOR CONTACT FORM MESSAGE -->
+                <div id="form-messages"></div>
+                  <form action="/auth/signup" method="POST">
+                    <input id="authEmail" class="form-control" type="email" name="email" placeholder="Email">
+                    <input id="authName" class="form-control" type="text" name="name" placeholder="Name">
+                    <input id="authPassword" class="form-control" type="password" name="password" placeholder="Password">
+                    <input class="submit_btn" type="submit" value="Send">  
+                  </form>
+
+                  <div style="margin-top:30px">
+                    <% if (alerts.error) { %>
+                      <% alerts.error.forEach(function(msg) { %>
+                        <div class="alert alert-danger"><%= msg %></div>
+                      <% }); %>
+                    <% } %>
+                    <% if (alerts.success) { %>
+                      <% alerts.success.forEach(function(msg) { %>
+                        <div class="alert alert-success"><%= msg %></div>
+                      <% }); %>
+                    <% } %>
+                  </div>  
+                                  
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2">
+            </div>
+
+            </div>    
+          </div>
+          
+
+
+</div>

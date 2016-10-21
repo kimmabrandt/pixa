@@ -1,0 +1,48 @@
+<div class="mainbody">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <!-- START HEADING -->
+      <div class="heading">
+        <h2 class="wow fadeInLeftBig">Log In</h2>
+      </div>
+    </div>
+  </div>       
+  <div class="row">
+    <div class="contact_content">
+      <!-- BEGIN FORM -->
+      <div class="col-lg-7 col-md-7 col-sm-7">
+        <div class="contact_form">
+          <form action="/auth/login" method="POST">
+            <label for="authEmail">Email:</label>
+            <input id="authEmail" class="form-control" type="email" name="email" placeholder="">
+            <label for="authPassword">Password:</label>
+            <input id="authPassword" class="form-control" type="password" name="password" placeholder="">
+            <input class="submit_btn" type="submit" value="Send">  
+          </form>
+
+        <div style="margin-top:30px">
+          <% if (alerts.error) { %>
+            <% alerts.error.forEach(function(msg) { %>
+              <div class="alert alert-danger"><%= msg %></div>
+            <% }); %>
+          <% } %>
+          <% if (alerts.success) { %>
+            <% alerts.success.forEach(function(msg) { %>
+              <div class="alert alert-success"><%= msg %></div>
+            <% }); %>
+          <% } %>
+        </div>
+        </div>
+
+
+      </div>
+      <div class="col-lg-5 col-md-5 col-sm-5 text-center">
+        <h3>OR</h3>
+        <p class="count-text">
+          <!-- <input class="submit_btn_fb" type="submit" value="Log in with Facebook">  -->
+          <a href="/auth/facebook" class="submit_btn_fb">Login via Facebook</a> 
+        </p>
+      </div>
+    </div>    
+  </div>
+</div>
