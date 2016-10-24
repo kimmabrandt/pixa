@@ -1,1 +1,51 @@
- 
+<!--=========== BEGIN GALLERY SECTION ================-->
+<section id="works" class="photo_gallery">
+
+  <!-- HEADER -->
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+     <div class="container">
+        <div class="heading">
+          <h2>Welcome</h2>
+          <div class="larger text-center">
+            <% if (currentUser) { %>
+              Hello <%= currentUser.name %>   (<a href="/auth/logout">Logout</a>)
+            <% } %>
+          </div>
+          <h4 class="text-center">Click on a photo to view larger, and to add it to your favorites gallery.</h4>
+
+          <p class="hide">
+          <strong>User:</strong> <%- JSON.stringify(currentUser) %>
+          </p>
+          <!-- ALERTS -->
+          <% if (alerts.success) { %>
+            <% alerts.success.forEach(function(msg) { %>
+              <div class="alert alert-success"><%= msg %></div>
+            <% }); %>
+          <% } %>
+
+          <p class="sort_cat"><a href="/categories">Filter by category</a></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TUMBLR PHOTOS HERE -->
+  <div class="row text-center">
+    <div class="col-lg-12 col-md-12">
+      <div class="photo_gallery">
+    		<!-- <form method="POST" action="/authors/new">
+    			url
+    			<input type="text" id="url" name="photoURL">
+    			category
+    			<input type="text" id="category" name="photoCat">
+    			<input type="submit" value="Add Author">
+    		</form> -->
+
+        <div class="masonry" id="tumblr-posts">
+        </div>
+      </div> 
+    </div>
+  </div>
+</section>

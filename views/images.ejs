@@ -1,0 +1,32 @@
+<div class="mainbody">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+      <!-- HEADING -->
+      <div class="heading">
+
+      <% if (currentUser) { %>
+    		<form method="POST" action="/:id">
+    			<input type="text" class="hide" id="userId" name="userId" value=" <%- currentUser.id %> ">
+    			<input type="text" class="hide" id="photoId" name="photoId" value=" <%- photos.id %> ">
+    			<input type="submit" value="Add to Favorites" class="submit_btn">
+    		</form>     
+  	  <% } %>
+      <% if (!currentUser) { %>
+      <h4>Sign up or log in to save to favorites!</h4>
+      <% }; %>
+      <p style="margin-top:46px;margin-bottom:30px">    
+        <img src=" <%- photos.url %> " id="">
+      </p>
+      <p class="photo_cat">
+        <%= photos.category %>
+      </p>
+      <% if (currentUser) { %>
+        <p class="delete_link" style="font-size:13px">
+          <a href="/<%- photos.id %>">Delete from favorites</a> 
+        </p>
+      <% } %>
+
+      </div>
+    </div>
+  </div>  
+ </div> 

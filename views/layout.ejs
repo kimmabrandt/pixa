@@ -11,38 +11,86 @@
     <!-- Mobile Specific Metas
     ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="/public/img/favicon.png"/>
 
     <!-- CSS
     ================================================== -->   
-
-    <link href="/public/css/photos.css" rel="stylesheet">     
     <!-- Bootstrap css file-->
     <link href="/public/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font awesome css file-->
     <link href="/public/css/font-awesome.min.css" rel="stylesheet">
-    <!-- Superslide css file-->
-    <link rel="stylesheet" href="/public/css/superslides.css">
-    <!-- Slick slider css file -->
-    <link href="/public/css/slick.css" rel="stylesheet"> 
-    <!-- smooth animate css file -->
-    <!-- <link rel="stylesheet" href="/public/css/animate.css">   -->
-    <!-- Elastic grid css file -->
-    <link rel="stylesheet" href="/public/css/elastic_grid.css"> 
-    <!-- Circle counter cdn css file -->
-    <link rel='stylesheet prefetch' href='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/css/jquery.circliful.css'>    
     <!-- Default Theme css file -->
     <link id="orginal" href="/public/css/themes/riptide-theme.css" rel="stylesheet">
     <!-- Main structure css file -->
     <link href="/public/css/style.css" rel="stylesheet">
-   
     <!-- Google fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+    <style>
+
+.masonry { /* Masonry container */
+    -webkit-column-count: 4;
+  -moz-column-count:4;
+  column-count: 4;
+  -webkit-column-gap: 1em;
+  -moz-column-gap: 1em;
+  column-gap: 1em;
+   margin: 1.5em;
+    padding: 0;
+    -moz-column-gap: 1.5em;
+    -webkit-column-gap: 1.5em;
+    column-gap: 1.5em;
+    font-size: .85em;
+    background-color:transparent;
+}
+.item {
+    display: inline-block;
+    background: #fff;
+    padding: 1em;
+    margin: 0 0 1.5em;
+    width: 100%;
+  -webkit-transition:1s ease all;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-shadow: 2px 2px 4px 0 #ccc;
+}
+.item img{max-width:100%;}
+
+@media only screen and (max-width: 320px) {
+    .masonry {
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count: 1;
+    }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 768px){
+    .masonry {
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
+    }
+}
+@media only screen and (min-width: 769px) and (max-width: 1200px){
+    .masonry {
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+}
+@media only screen and (min-width: 1201px) {
+    .masonry {
+        -moz-column-count: 4;
+        -webkit-column-count: 4;
+        column-count: 4;
+    }
+}
+
+    </style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -53,6 +101,7 @@
 
   </head>
   <body> 
+
      <!-- BEGAIN PRELOADER -->
     <div id="preloader">
       <div id="status">&nbsp;</div>
@@ -65,130 +114,52 @@
 
     <!--=========== BEGIN HEADER SECTION ================-->
     <header id="header">
-      <!-- BEGIN MENU -->
+      <!-- BEGIN NAV/MENU -->
       <div class="menu_area">
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> 
           <div class="container">
-          <div class="navbar-header">
-            <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+            <div class="navbar-header">
+              <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
 
-            <!-- LOGO -->
+              <!-- TEXT BASED LOGO -->
+              <a class="navbar-brand" href="#">Pixa<span>Post</span></a>
+              
+              <!-- IMG BASED LOGO  -->
+              <!--  <a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo"></a> -->    
+            </div>
 
-            <!-- TEXT BASED LOGO -->
-            <a class="navbar-brand" href="#">Pixa<span>Post</span></a>
-            
-            <!-- IMG BASED LOGO  -->
-            <!--  <a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo"></a> -->    
-          </div>
-
-          <!-- NAVIGATION  -->
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
-              <li class="active"><a href="/">Home</a></li>
-              <li><a href="/featured">Featured</a></li>
-              <li><a href="#works">Account</a></li> 
-              <li><a href="/upload">Upload</a></li> 
-              <li><a href="/auth/login">Log In</a></li>               
-              <li><a href="/auth/signup" class="signUpNav">Sign Up</a></li>                           
-            </ul>           
-          </div>
+            <!-- NAVIGATION  -->
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="<% if (currentUser) { %>/favorites/<%- currentUser.id %><% } else { %>/auth/login<% } %>">Favorites</a></li> 
+                <li><a href="/upload">Upload</a></li> 
+                <li><a href="/auth/login">Log In</a></li>               
+                <li><a href="/auth/signup" class="signUpNav">Sign Up</a></li>                           
+              </ul>           
+            </div>
           </div>     
         </nav>  
       </div>
-      <!-- END MENU -->
-    <!--=========== End HEADER SECTION ================--> 
-
+    </header>
 
 
     <!--=========== BEGIN MAIN BODY SECTION ================-->
     <section id="mainbody">
-      <div class="container">
-        <%- body %>
-      </div>     
-    </section>
-    <!--=========== END MAIN BODY SECTION ================-->
-
-
-
-    <!--=========== BEGIN GALLERY SECTION ================-->
-    <section id="works">
-      <!-- BEGIN GALLERY SECTION -->
-
       <div class="row">
-        <div class="portfolio_area">
-          <!-- BEGIN GALLERY HEADER -->
-          <div class="row">
-            <div class="col-lg-12 col-md-12">
-             <div class="container">
-                <div class="heading">
-                  <h2 class="wow fadeInLeftBig">Latest</h2>
-                  <div class="userGreeting">
-                    <% if (currentUser) { %>
-                      Hello <%= currentUser.name %>
-                    <% } %>
-                  </div>
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hddein in the middle of text</p>
-                  
-
-
-                  <strong>User:</strong> <%- JSON.stringify(currentUser) %>
-
-                  <% if (alerts.success) { %>
-                    <% alerts.success.forEach(function(msg) { %>
-                      <div class="alert alert-success"><%= msg %></div>
-                    <% }); %>
-                  <% } %>
-
-                  <br><a href="/auth/logout">Logout</a>
-
-                </div>
-              </div>
-            </div>
+        <div class="col-lg-12 col-md-12">
+          <div class="container">
+            <%- body %>
           </div>
-          <!-- END PORTFOLIO HEADER -->
-
-          <!-- BEGAIN PORTFOLIO GALLERY -->
-          <div class="row">
-            <div class="portfolio_gallery">
-              <div id="elastic_grid_demo"></div>
-            </div>
-          </div>
-          <!-- END PORTFOLIO GALLERY -->
-        </div>         
-      </div>      
-      <!-- END FORTFOLIO WORSK SECTION -->
+        </div>  
+      </div>   
     </section>
-    <!--=========== END WORKS SECTION ================-->
-
-
-    <!--=========== DIVIDER ================-->
-    <section id="contactFeature">
-      <!-- SKILLS COUNTER OVERLAY -->
-      <div class="slider_overlay"></div>
-      <div class="row">
-        <div class="col-lg-12 col-md-12">       
-          <div class="container">               
-              <div class="contact_feature">
-          </div>
-          </div>         
-        </div>
-      </div>
-    </section>
-    <!--=========== END DIVIDER ================-->
-
-
-
-
-
-
-
-
 
 
     <!--=========== BEGAIN SIGN UP SECTION ================-->
@@ -196,31 +167,28 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12">
-            <!-- START CONTACT HEADING -->
+            <!-- HEADING -->
             <div class="heading">
-              <h2 class="wow fadeInLeftBig">Sign Up</h2>
-              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+              <h2>Sign Up</h2>
+              <div class="larger">Sign up now for free!</div>
             </div>
           </div>
         </div>       
         <div class="row">
-          <!-- BEGAIN CONTACT CONTENT -->
           <div class="contact_content">
-            <!-- BEGAIN CONTACT FORM -->
             <div class="col-lg-2 col-md-2 col-sm-2">
             </div>
             <div class="col-lg-8 col-md-8 col-sm-8">
               <div class="contact_form">
 
-                <!-- FOR CONTACT FORM MESSAGE -->
-                <div id="form-messages"></div>
+                <!-- SIGN UP FORM -->
                   <form action="/auth/signup" method="POST">
                     <input id="authEmail" class="form-control" type="email" name="email" placeholder="Email">
-                    <input id="authName" style="background-color:white" class="form-control" type="text" name="name" placeholder="Name">
+                    <input id="authName" class="form-control" type="text" name="name" placeholder="Name">
                     <input id="authPassword" class="form-control" type="password" name="password" placeholder="Password">
                     <input class="submit_btn" type="submit" value="Send">  
                   </form>
-
+                <!-- ALERTS -->
                   <div style="margin-top:30px">
                     <% if (alerts.error) { %>
                       <% alerts.error.forEach(function(msg) { %>
@@ -233,88 +201,104 @@
                       <% }); %>
                     <% } %>
                   </div>  
-
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-2">
             </div>
-
-            </div>    
-          </div>
-        </div>      
-      </div>             
+          </div>    
+        </div>
+      </div>                  
     </section>
-    <!--=========== END SIGN UP SECTION ================-->
-
-<hr>
 
 
-
-     <!--=========== BEGAIN FOOTER ================-->
-     <footer id="footer">
-       <div class="container">
-         <div class="row">
-           <div class="col-lg-6 col-md-6 col-sm-6">
-             <div class="footer_left">
+    <!--=========== BEGAIN FOOTER ================-->
+    <footer id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="footer_left">
         <!--=========== Designed By WpFreeware Team ================-->
-               <p>Copyright &copy; 2015 <a href="http://www.wpfreeware.com">WpFreeware</a>. All Rights Reserved</p>
-         <!--=========== Designed By WpFreeware Team ================-->
-             </div>
-           </div>
-           <div class="col-lg-6 col-md-6 col-sm-6">
-             <div class="footer_right">
-               <ul class="social_nav">
-                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                 <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                 <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-               </ul>
-             </div>
-           </div>
-         </div>
-       </div>
-      </footer>
-      <!--=========== END FOOTER ================-->
-
-<div id="tGallery">
-  <ul id="tumblrGallery" class="tumblrGallery">
-    
-  </ul>
-  
-</div>   
+              <p>Copyright &copy; 2015 <a href="http://www.wpfreeware.com">WpFreeware</a>. All Rights Reserved</p>
+        <!--=========== Designed By WpFreeware Team ================-->
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="footer_right">
+              <ul class="social_nav">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 
 
 
 
+    <!-- Javascript Files ================================================== -->
 
-     <!-- Javascript Files
-     ================================================== -->
-    <script>
-    $.ajax({
-    url: "https://api.tumblr.com/v2/tagged?tag=illustration&api_key=fuiKNFp9vQFvjLNvx4sUwti4Yb5yGutBN4Xh10LXZhhRKjWlV4",
-    dataType: 'jsonp',
-    success: function(posts){
-      var postings = posts.response;
-      console.log(postings);
-      var text = '';
-    for (var i in postings) {
-     var p = postings[i];
-    text += '<li><img src=' + p.photos[0].original_size.url +'></li>';
-    }
-    $('#tumblrGallery').append(text);
-        
-    });
-    </script>
-
-
-
-    <script src="/public/js/photos.js"></script>
-     <!-- initialize jQuery Library -->
+    <!-- initialize jQuery Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Google map -->
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="/public/js/jquery.ui.map.js"></script>
-     <!-- For smooth animatin  -->
+
+    <!-- Get photos from tumblr api -->
+    <script>
+
+      $(document).ready(function() {
+          var tumblrTag = "design";
+          var imgURL = null;
+          var postId = null;
+          var imgArray = [];
+          //reset/remove existing photos
+          $("#tumblr-posts").html("");
+
+          // tumblr api get tagged posts
+          apiKey = "sO4aMxnu55qhYyiUpJPWncpOSAAi0gSQyVwk128u23vpVyKSoa";
+          limit=50
+          $.ajax({
+              url: "https://api.tumblr.com/v2/blog/piiixels.tumblr.com/posts?limit=50",
+              dataType: 'jsonp',
+              data: {
+              api_key: apiKey
+              },
+              success: function(results){
+                var i = 0
+                while (i < results.response.posts.length) {
+                  var type = results.response.posts[i].type;
+                  if (type == "photo") {
+                    var photos = results.response.posts[i].photos;
+                    var linkURL = results.response.posts[i].post_url;
+                    var caption = results.response.posts[i].caption;
+                    var k = results.response.posts.length;
+                    postId = results.response.posts[i].id;
+                    for (var j = 0; j < photos.length; j++) {
+                      if (photos[j].alt_sizes[1]) {
+                        imgURL = photos[j].alt_sizes[1].url
+                      }else{
+                        continue;
+                      }
+                      $("#tumblr-posts").append("<div class='item'><a href='/" + (k - i) + "'><img src=" + imgURL + " /></a></div>");
+                        imgArray.push(imgURL);
+                        console.log(imgURL);
+                    }
+                  }
+                  i++;
+                }
+                console.log(results.response);
+              }
+            });
+          
+      }); // end of document.ready
+    </script>
+
+
+    <!-- For smooth animatin  -->
     <script src="/public/js/wow.min.js"></script> 
     <!-- Bootstrap js -->
     <script src="/public/js/bootstrap.min.js"></script>
