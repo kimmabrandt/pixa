@@ -62,7 +62,6 @@ app.get('/upload', isLoggedIn, function(req, res) {
 });
 
 
-
 app.post("/", upload.single("myFile"), function(req, res){
   cloudinary.uploader.upload(req.file.path, function(result){
     console.log(result);
@@ -73,63 +72,6 @@ app.post("/", upload.single("myFile"), function(req, res){
 
 });
 
-
-
-// app.post('/upload', function(req,res){
-//   var imageFile=req.files.myFile;
-//   console.log(imageFile);      
-//   cloudinary.uploader.upload(
-//   imageFile.path,
-//   function(result) { console.log(result);
-//   console.log('***************************');
-//   console.log(result.secure_url);
-//   //you can write this image url to your database
-//     res.send('<p>Your image was uploaded to :'+result.secure_url +'</p>');
-//   },
-//   {
-//     public_id: 'sample', 
-//     crop: 'limit',
-//     width: 2000,
-//     height: 2000,                                    
-//     tags: ['special', 'for_homepage']
-//   }      
-// );
-// });
-
-
-
-// app.post("/", upload.single("myFile"), function(req, res){
-//   cloudinary.uploader.upload(req.file.path, function(result){
-//     res.send(result);
-//   }).then(function(result){
-//     db.photos.create({
-//       url: result.url
-//     }).then(function(photo){
-//       res.redirect("/");
-//     });
-//   });
-
-// });
-
-
-
-// db.users_photos.create({
-//       userId: req.body.userId,
-//       photoId: req.body.photoId
-//       }).then(function(project){
-
-//     console.log(project.get());
-//           res.redirect("/");
-//       }); //End then() for createArticle
-         
-//           }); 
-
-
-// app.post("/", upload.single("myFile"), function(req, res){
-//   cloudinary.uploader.upload(req.file.path, function(result){
-//     res.send(result);
-//   });
-// });
 
 //===============  Favorites  ===============//
 
@@ -143,7 +85,8 @@ app.get("/favorites/:id", function(req, res){
   }); // End then
 });
 
-app.delete('/:id', function(req, res) {
+
+app.post('/delete', function(req, res) {
   db.users_photos.find({
     where: { 
       userId: req.body.userId,
@@ -184,10 +127,6 @@ app.get('/:id', function(req, res) {
 // POST /projects - create a new favorite
 app.post('/:id', function(req, res) {
 
-    // db.photos.findOne({ 
-    //   where: {id: req.body.url}
-    // }).then(function(author){
-
     db.users_photos.create({
       userId: req.body.userId,
       photoId: req.body.photoId
@@ -196,9 +135,7 @@ app.post('/:id', function(req, res) {
     console.log(project.get());
           res.redirect("/");
       }); //End then() for createArticle
-         
           }); 
-
 
 
 //===============  Etc  ===============//
@@ -208,82 +145,9 @@ app.get('/featured', function(req, res) {
 });
 
 
-
 app.get('/tumblr', function(req, res) {
   res.render('tumblr');
 });
-
-
-// app.get('/favorites/:id', function(req, res) {
-//   db.user.findAll({ order: "name ASC" }).then(function(users){
-//   res.render("favorites", { users: users}); //now we can use 'authors' in the loop
-//   });
-// });
-
-
-  // app.get('/favorites/:id', function(req, res) {
-
-  // db.user.find({
-  //   where: {id: req.body.userId }
-  // }).then(function(user){
-  //   user.getPhotos().then(function(photos){
-  //     res.render("favorites", { userName: user.name, photos:photos});
-  //   });
-  // });
-
-  // });
-
-  // app.get('/favorites/:id', function(req, res) {
-  //   db.user.find({
-  //     where: { id: req.params.id },
-  //     include: [db.photos]
-  //   })
-  //   .then(function(photo) {
-  //     if (!photo) throw Error();
-  //     res.render('favorites', { photos: photos });
-  //   })
-
-  // });
-
-
-
-// // app.post('/deleteIds', function(req, res){
-// //     console.log(req.body.arr[0]);
-// //     res.json({ success: true });
-// // });
-
-
-// app.post('/deleteIds', function(req, res) {
-//   db.photos.create({
-//     url: req.body.imgArray[0]
-//   });
-
-//     res.json({ success: true });
-// });
-
-
-
-
-// app.post("/", upload.single("myFile"), function(req, res){
-//   cloudinary.uploader.upload(req.file.path, function(result){
-//     res.send(result);
-//   });
-// });
-
-// app.post('/deleteIds', function(req, res){
-//     console.log(req.body.arr[0]);
-//     res.json({ success: true });
-// });
-
-
-// app.post('/deleteIds', function(req, res) {
-//   db.photos.create({
-//     url: req.body.imgArray[0]
-//   });
-
-//     res.json({ success: true });
-// });
-
 
 
 app.use('/auth', require('./controllers/auth'));

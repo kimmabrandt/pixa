@@ -9,7 +9,8 @@
     			<input type="text" class="hide" id="userId" name="userId" value=" <%- currentUser.id %> ">
     			<input type="text" class="hide" id="photoId" name="photoId" value=" <%- photos.id %> ">
     			<input type="submit" value="Add to Favorites" class="submit_btn">
-    		</form>     
+    		</form>   
+         
   	  <% } %>
       <% if (!currentUser) { %>
       <h4>Sign up or log in to save to favorites!</h4>
@@ -22,7 +23,11 @@
       </p>
       <% if (currentUser) { %>
         <p class="delete_link" style="font-size:13px">
-          <a href="/<%- photos.id %>">Delete from favorites</a> 
+          <form method="POST" action="/delete" class="delete_form">
+          <input type="text" class="hide" id="userId" name="userId" value=" <%- currentUser.id %> ">
+          <input type="text" class="hide" id="photoId" name="photoId" value=" <%- photos.id %> ">
+          <input type="submit" value="Delete" class="delete_form">
+        </form>   
         </p>
       <% } %>
 

@@ -1362,6 +1362,17 @@ div[data-dimension] {
 	width: 100%;
 }
 
+.delete_form{
+  background-color:#86E2D5;
+  padding:4px;
+  font-size:14px;
+  display: inline;
+  font-family:'Quicksand';
+  text-transform:uppercase;
+  color:#ffffff;
+  border: none;
+}
+
 .contact_form input[type="text"],.contact_form input[type="email"],.contact_form input[type="password"]{
   margin-bottom: 20px;
   border-bottom:2px solid #757575;
