@@ -1,122 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
-    <!-- Basic Page Needs
-    ================================================== -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <title>PIXAPOST : Home</title>
-
-    <!-- Mobile Specific Metas
-    ================================================== -->
+    <title>PIXAPOST : Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="/public/img/favicon.png"/>
-
-    <!-- CSS
-    ================================================== -->   
-    <!-- Bootstrap css file-->
+    <!-- Bootstrap -->
     <link href="/public/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font awesome css file-->
+    <!-- Font awesome -->
     <link href="/public/css/font-awesome.min.css" rel="stylesheet">
     <!-- Default Theme css file -->
     <link id="orginal" href="/public/css/themes/riptide-theme.css" rel="stylesheet">
     <!-- Main structure css file -->
     <link href="/public/css/style.css" rel="stylesheet">
+    <!-- Masonry Grid css file -->
+    <link href="/public/css/masonry.css" rel="stylesheet">
     <!-- Google fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
-    <style>
-
-.masonry { /* Masonry container */
-    -webkit-column-count: 4;
-  -moz-column-count:4;
-  column-count: 4;
-  -webkit-column-gap: 1em;
-  -moz-column-gap: 1em;
-  column-gap: 1em;
-   margin: 1.5em;
-    padding: 0;
-    -moz-column-gap: 1.5em;
-    -webkit-column-gap: 1.5em;
-    column-gap: 1.5em;
-    font-size: .85em;
-    background-color:transparent;
-}
-.item {
-    display: inline-block;
-    background: #fff;
-    padding: 1em;
-    margin: 0 0 1.5em;
-    width: 100%;
-  -webkit-transition:1s ease all;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-shadow: 2px 2px 4px 0 #ccc;
-}
-.item img{max-width:100%;}
-
-@media only screen and (max-width: 320px) {
-    .masonry {
-        -moz-column-count: 1;
-        -webkit-column-count: 1;
-        column-count: 1;
-    }
-}
-
-@media only screen and (min-width: 321px) and (max-width: 768px){
-    .masonry {
-        -moz-column-count: 2;
-        -webkit-column-count: 2;
-        column-count: 2;
-    }
-}
-@media only screen and (min-width: 769px) and (max-width: 1200px){
-    .masonry {
-        -moz-column-count: 3;
-        -webkit-column-count: 3;
-        column-count: 3;
-    }
-}
-@media only screen and (min-width: 1201px) {
-    .masonry {
-        -moz-column-count: 4;
-        -webkit-column-count: 4;
-        column-count: 4;
-    }
-}
-
-    </style>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
   </head>
-  <body> 
+  <body>
 
-     <!-- BEGAIN PRELOADER -->
+    <!-- PRELOADER -->
     <div id="preloader">
       <div id="status">&nbsp;</div>
     </div>
-    <!-- END PRELOADER -->
-
     <!-- SCROLL TOP BUTTON -->
     <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
-    <!-- END SCROLL TOP BUTTON -->
 
-    <!--=========== BEGIN HEADER SECTION ================-->
+    <!--=========== HEADER SECTION ================-->
     <header id="header">
-      <!-- BEGIN NAV/MENU -->
+      <!-- NAV/MENU -->
       <div class="menu_area">
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> 
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
           <div class="container">
             <div class="navbar-header">
               <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
@@ -126,43 +44,38 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-
-              <!-- TEXT BASED LOGO -->
+              <!-- LOGO -->
               <a class="navbar-brand" href="#">Pixa<span>Post</span></a>
-              
-              <!-- IMG BASED LOGO  -->
-              <!--  <a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo"></a> -->    
             </div>
-
             <!-- NAVIGATION  -->
             <div id="navbar" class="navbar-collapse collapse">
               <ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
                 <li class="active"><a href="/">Home</a></li>
-                <li><a href="<% if (currentUser) { %>/favorites/<%- currentUser.id %><% } else { %>/auth/login<% } %>">Favorites</a></li> 
-                <li><a href="/upload">Upload</a></li> 
-                <li><a href="/auth/login">Log In</a></li>               
-                <li><a href="/auth/signup" class="signUpNav">Sign Up</a></li>                           
-              </ul>           
+                <li><a href="<% if (currentUser) { %>/favorites/<%- currentUser.id %><% } else { %>/auth/login<% } %>">Favorites</a></li>
+                <li><a href="/upload">Upload</a></li>
+                <li><a href="/auth/login">Log In</a></li>
+                <li><a href="/auth/signup" class="signUpNav">Sign Up</a></li>
+              </ul>
             </div>
-          </div>     
-        </nav>  
+          </div>
+        </nav>
       </div>
     </header>
 
 
-    <!--=========== BEGIN MAIN BODY SECTION ================-->
+    <!--=========== MAIN BODY SECTION ================-->
     <section id="mainbody">
       <div class="row">
         <div class="col-lg-12 col-md-12">
           <div class="container">
             <%- body %>
           </div>
-        </div>  
-      </div>   
+        </div>
+      </div>
     </section>
 
 
-    <!--=========== BEGAIN SIGN UP SECTION ================-->
+    <!--=========== SIGN UP SECTION ================-->
     <section id="contact">
       <div class="container">
         <div class="row">
@@ -173,53 +86,49 @@
               <div class="larger">Sign up now for free!</div>
             </div>
           </div>
-        </div>       
+        </div>
         <div class="row">
           <div class="contact_content">
             <div class="col-lg-2 col-md-2 col-sm-2">
             </div>
             <div class="col-lg-8 col-md-8 col-sm-8">
               <div class="contact_form">
-
                 <!-- SIGN UP FORM -->
-                  <form action="/auth/signup" method="POST">
-                    <input id="authEmail" class="form-control" type="email" name="email" placeholder="Email">
-                    <input id="authName" class="form-control" type="text" name="name" placeholder="Name">
-                    <input id="authPassword" class="form-control" type="password" name="password" placeholder="Password">
-                    <input class="submit_btn" type="submit" value="Send">  
-                  </form>
+                <form action="/auth/signup" method="POST">
+                  <input id="authEmail" class="form-control" type="email" name="email" placeholder="Email">
+                  <input id="authName" class="form-control" type="text" name="name" placeholder="Name">
+                  <input id="authPassword" class="form-control" type="password" name="password" placeholder="Password">
+                  <input class="submit_btn" type="submit" value="Send">
+                </form>
                 <!-- ALERTS -->
-                  <div style="margin-top:30px">
-                    <% if (alerts.error) { %>
-                      <% alerts.error.forEach(function(msg) { %>
-                        <div class="alert alert-danger"><%= msg %></div>
-                      <% }); %>
-                    <% } %>
-                    <% if (alerts.success) { %>
-                      <% alerts.success.forEach(function(msg) { %>
-                        <div class="alert alert-success"><%= msg %></div>
-                      <% }); %>
-                    <% } %>
-                  </div>  
+                <div style="margin-top:30px">
+                  <% if (alerts.error) { %>
+                    <% alerts.error.forEach(function(msg) { %>
+                      <div class="alert alert-danger"><%= msg %></div>
+                    <% }); %>
+                  <% } %>
+                  <% if (alerts.success) { %>
+                    <% alerts.success.forEach(function(msg) { %>
+                      <div class="alert alert-success"><%= msg %></div>
+                    <% }); %>
+                  <% } %>
+                </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-2">
             </div>
-          </div>    
+          </div>
         </div>
-      </div>                  
+      </div>
     </section>
 
-
-    <!--=========== BEGAIN FOOTER ================-->
+    <!--=========== FOOTER ================-->
     <footer id="footer">
       <div class="container">
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-6">
             <div class="footer_left">
-        <!--=========== Designed By WpFreeware Team ================-->
               <p>Copyright &copy; 2015 <a href="http://www.wpfreeware.com">WpFreeware</a>. All Rights Reserved</p>
-        <!--=========== Designed By WpFreeware Team ================-->
             </div>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6">
@@ -236,84 +145,12 @@
       </div>
     </footer>
 
-
-
-
-    <!-- Javascript Files ================================================== -->
-
-    <!-- initialize jQuery Library -->
+    <!-- jQuery Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Google map -->
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
-    <script src="/public/js/jquery.ui.map.js"></script>
-
-    <!-- Get photos from tumblr api -->
-    <script>
-
-      $(document).ready(function() {
-          var tumblrTag = "design";
-          var imgURL = null;
-          var postId = null;
-          var imgArray = [];
-          //reset/remove existing photos
-          $("#tumblr-posts").html("");
-
-          // tumblr api get tagged posts
-          apiKey = "sO4aMxnu55qhYyiUpJPWncpOSAAi0gSQyVwk128u23vpVyKSoa";
-          limit=50
-          $.ajax({
-              url: "https://api.tumblr.com/v2/blog/piiixels.tumblr.com/posts?limit=50",
-              dataType: 'jsonp',
-              data: {
-              api_key: apiKey
-              },
-              success: function(results){
-                var i = 0
-                while (i < results.response.posts.length) {
-                  var type = results.response.posts[i].type;
-                  if (type == "photo") {
-                    var photos = results.response.posts[i].photos;
-                    var linkURL = results.response.posts[i].post_url;
-                    var caption = results.response.posts[i].caption;
-                    var k = results.response.posts.length;
-                    postId = results.response.posts[i].id;
-                    for (var j = 0; j < photos.length; j++) {
-                      if (photos[j].alt_sizes[1]) {
-                        imgURL = photos[j].alt_sizes[1].url
-                      }else{
-                        continue;
-                      }
-                      $("#tumblr-posts").append("<div class='item'><a href='/" + (k - i) + "'><img src=" + imgURL + " /></a></div>");
-                        imgArray.push(imgURL);
-                        console.log(imgURL);
-                    }
-                  }
-                  i++;
-                }
-                console.log(results.response);
-              }
-            });
-          
-      }); // end of document.ready
-    </script>
-
-
-    <!-- For smooth animatin  -->
-    <script src="/public/js/wow.min.js"></script> 
+    <!-- Load images from Tumblr API  -->
+    <script src="/public/js/tumblr.js"></script>
     <!-- Bootstrap js -->
     <script src="/public/js/bootstrap.min.js"></script>
-    <!-- superslides slider -->
-    <script src="/public/js/jquery.superslides.min.js" type="text/javascript"></script>
-    <!-- slick slider -->
-    <script src="/public/js/slick.min.js"></script>    
-    <!-- for circle counter -->
-    <script src='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/js/jquery.circliful.min.js'></script>
-    <!-- for portfolio filter gallery -->
-    <script src="/public/js/modernizr.custom.js"></script>
-    <script src="/public/js/classie.js"></script>
-    <script src="/public/js/elastic_grid.min.js"></script>
-    <script src="/public/js/portfolio_slider.js"></script>
-
     <!-- Custom js-->
     <script src="/public/js/custom.js"></script>
   </body>

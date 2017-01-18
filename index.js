@@ -68,9 +68,17 @@ app.post("/", upload.single("myFile"), function(req, res){
   console.log('***************************');
   console.log(result.secure_url);
     res.send('<p>Your image was uploaded to :'+result.secure_url +'</p>');
+  }).then(function(upload){
+    db.photos.create({
+      url: req.body.userId,
+      category: "user"
+      }).then(function(upload){
+    // console.log(project.get());
+          res.redirect("/");
+      });
   });
+}); 
 
-});
 
 
 //===============  Favorites  ===============//
